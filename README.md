@@ -13,9 +13,9 @@ to send emails with Amazon SES API, instead of php mail() or PEAR SMTP classes.
 
 ```php
 wfLoadExtension("SesMailer");
-$wgSesMailerRegion = "eu-west-1";
-$wgSesMailerKey = "xxx";
-$wgSesMailerSecret = "xxx";
+$wgSesMailerRegion = "eu-west-1"; // AWS Region
+$wgSesMailerKey = "xxx"; // Access Key ID for IAM user with ses:SendEmail permission
+$wgSesMailerSecret = "xxx"; // Secret Access Key
 ```
 
 ## Credit
