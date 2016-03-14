@@ -1,0 +1,20 @@
+{
+  "manifest_version": 1,
+  "name": "SesMailer",
+  "type": "other",
+  "author": "Janos Ronkay",
+  "version": "1.0",
+  "AutoloadClasses": {
+    "SesMailer": "SesMailer_body.php"
+  },
+  "Hooks": {
+    "AlternateUserMailer": [
+      "SesMailer::wfSesMailer"
+    ]
+  },
+  "config": {
+    "SesMailerRegion": "eu-west-1",
+    "SesMailerKey": "",
+    "SesMailerSecret": ""
+  }
+}
