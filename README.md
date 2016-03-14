@@ -17,3 +17,7 @@ $wgSesMailerRegion = "eu-west-1";
 $wgSesMailerKey = "xxx";
 $wgSesMailerSecret = "xxx";
 ```
+
+## Credit
+
+A similar plugin for Question2Answer: [qa-mail-ses](https://github.com/fauguste/qa-mail-ses)
