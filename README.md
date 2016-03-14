@@ -2,7 +2,7 @@
 
 ## About
 
-The extension uses the [AlternateUserMailer hook](https://www.mediawiki.org/wiki/Manual:Hooks/AlternateUserMailer)
+The [SesMailer extension](https://www.mediawiki.org/wiki/Extension:SesMailer) uses the [AlternateUserMailer hook](https://www.mediawiki.org/wiki/Manual:Hooks/AlternateUserMailer)
 to send emails with Amazon SES API, instead of php mail() or PEAR SMTP classes.
 
 ## Installation
