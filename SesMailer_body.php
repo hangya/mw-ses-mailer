@@ -1,7 +1,7 @@
 <?php
 
 class SesMailer {
-  function wfSesMailer($headers, $to, $from, $subject, $body) {
+  public static function wfSesMailer($headers, $to, $from, $subject, $body) {
     global $wgSesMailerRegion, $wgSesMailerKey, $wgSesMailerSecret;
 
     if (file_exists( __DIR__ . '/vendor/autoload.php')) {
@@ -43,7 +43,7 @@ class SesMailer {
       return false;
     }
     catch(Exception $e) {
-      return "Error sending email";
+      return "Error sending email: $e";
     }
   }
 }
