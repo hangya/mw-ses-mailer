@@ -1,10 +1,10 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 1,
   "name": "SesMailer",
   "type": "other",
   "author": "Janos Ronkay",
   "url": "https://github.com/hangya/mw-ses-mailer",
-  "descriptionmsg": "Use AWS SES API to send emails",
+  "description": "Use AWS SES API to send emails",
   "license-name": "GPL-2.0+",
   "version": "1.1",
   "AutoloadClasses": {
