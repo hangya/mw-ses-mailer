@@ -11,11 +11,14 @@ class SesMailer {
     $ses_factory_array = array(
       'version' => 'latest',
       'region' => $wgSesMailerRegion,
-      'credentials' => array(
+    );
+    // Use static credentials when configured; otherwise fall back to the SDK default provider chain
+    if ($wgSesMailerKey && $wgSesMailerSecret) {
+      $ses_factory_array['credentials'] = array(
         'key' => $wgSesMailerKey,
         'secret' => $wgSesMailerSecret,
-      )
-    );
+      );
+    }
     $client = Aws\Ses\SesClient::factory($ses_factory_array);
 
     $param = array();
@@ -43,7 +46,8 @@ class SesMailer {
       return false;
     }
     catch(Exception $e) {
-      return "Error sending email: $e";
+      wfLogWarning("Error sending email: $e");
+      return false;
     }
   }
 }
