@@ -3,6 +3,7 @@
 class SesMailer {
   public static function wfSesMailer($headers, $to, $from, $subject, $body) {
     global $wgSesMailerRegion, $wgSesMailerKey, $wgSesMailerSecret;
+    global $wgSesMailerSourceArn, $wgSesMailerReturnPath, $wgSesMailerReturnPathArn;
 
     if (file_exists( __DIR__ . '/vendor/autoload.php')) {
       require_once __DIR__ . '/vendor/autoload.php';
@@ -23,6 +24,16 @@ class SesMailer {
 
     $param = array();
     $param['Source'] = (string)$from;
+    // Identities owned by another account: SourceArn/ReturnPathArn point at the identity, not the sender
+    if ($wgSesMailerSourceArn) {
+      $param['SourceArn'] = $wgSesMailerSourceArn;
+    }
+    if ($wgSesMailerReturnPath) {
+      $param['ReturnPath'] = $wgSesMailerReturnPath;
+    }
+    if ($wgSesMailerReturnPathArn) {
+      $param['ReturnPathArn'] = $wgSesMailerReturnPathArn;
+    }
     $param['Destination'] = array(
       'ToAddresses' => array(),
     );
